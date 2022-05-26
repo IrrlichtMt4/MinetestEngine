@@ -144,7 +144,7 @@ void main(void)
 	vec3 wavePos = worldPosition + cameraOffset;
 	// The waves are slightly compressed along the z-axis to get
 	// wave-fronts along the x-axis.
-	wavePos.x /= WATER_WAVE_LENGTH * 3.0;
+	wavePos.x /= WATER_WAVE_LENGTH * 2.0;
 	wavePos.z /= WATER_WAVE_LENGTH * 2.0;
 	wavePos.z += animationTimer * WATER_WAVE_SPEED * 10.0;
 	pos.y += (snoise(wavePos) - 1.0) * WATER_WAVE_HEIGHT * 5.0;
@@ -181,10 +181,10 @@ void main(void)
 	vec4 color = inVertexColor;
 #endif
 	// The alpha gives the ratio of sunlight in the incoming light.
-	nightRatio = 1.0 - color.a;
+	nightRatio = 1. - color.a;
 	color.rgb = color.rgb * (color.a * dayLight.rgb +
-		nightRatio * artificialLight.rgb) * 2.0;
-	color.a = 1.0;
+		nightRatio * artificialLight.rgb) * 2.;
+	color.a = 1.;
 
 	// Emphase blue a bit in darker places
 	// See C++ implementation in mapblock_mesh.cpp final_color_blend()
