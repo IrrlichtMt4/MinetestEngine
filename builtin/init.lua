@@ -29,10 +29,15 @@ local gamepath = scriptdir .. "game" .. DIR_DELIM
 local clientpath = scriptdir .. "client" .. DIR_DELIM
 local commonpath = scriptdir .. "common" .. DIR_DELIM
 local asyncpath = scriptdir .. "async" .. DIR_DELIM
+local benchmarkpath = scriptdir .. "benchmark" .. DIR_DELIM
 
 dofile(commonpath .. "vector.lua")
 dofile(commonpath .. "strict.lua")
 dofile(commonpath .. "serialize.lua")
+dofile(benchmarkpath .. "benchmark.cpp")
+dofile(benchmarkpath .. "benchmark.h")
+dofile(benchmarkpath .. "benchmark_serialize.cpp")
+dofile(benchmarkpath .. "benchmark_setup.h")
 dofile(commonpath .. "misc_helpers.lua")
 
 if INIT == "game" then
